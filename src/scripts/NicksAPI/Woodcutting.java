@@ -7,7 +7,8 @@ public class Woodcutting {
 
     public enum Locations{
         LUM_OAK,
-        LUM_NORMAL;
+        LUM_NORMAL,
+        LUM_WILLOW;
     }
 
     public static boolean isAtTrees(){
