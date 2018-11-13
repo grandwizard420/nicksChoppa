@@ -6,16 +6,17 @@ import org.tribot.api2007.Objects;
 import org.tribot.api2007.types.RSObject;
 import org.tribot.script.Script;
 import scripts.NicksAPI.Node;
-import scripts.lumbridgeNormalChopper.Chopping;
-import scripts.lumbridgeNormalChopper.Dropping;
-import scripts.lumbridgeNormalChopper.WalkToTrees;
+import scripts.NicksAPI.Woodcutting;
+import scripts.NicksChoppa.Chopping;
+import scripts.NicksChoppa.Dropping;
+import scripts.NicksChoppa.WalkToTrees;
 
 public class nicksCHOPPA extends Script {
     @Override
     public void run() {
-        Chopping Chop = new Chopping();
+        Chopping Chop = new Chopping("Oak");
         Dropping Drop = new Dropping();
-        WalkToTrees Walk = new WalkToTrees();
+        WalkToTrees Walk = new WalkToTrees(Woodcutting.Locations.LUM_OAK);
         while (true){
             if(Chop.validate())
                 Chop.execute();
@@ -25,7 +26,7 @@ public class nicksCHOPPA extends Script {
                 Walk.execute();
             if(Interfaces.get(595, 37) != null)
                 Interfaces.get(595, 37).click("Close");
-            General.sleep(1000);
+            General.sleep(100);
         }
     }
 }
